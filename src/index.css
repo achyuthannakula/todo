@@ -1,24 +1,35 @@
-html, body, #root {
-  min-height:100%;
-  height:100%;
-  overflow-x: hidden;
-}
-
-.switch-wrapper {
-  position: absolute;
-  overflow:hidden;
-  height:100%;
-  top:0;   
-  left:0;
-  bottom:0; 
-  right:0;
-}
-
-.switch-wrapper > div {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+html,
+body,
+#root {
+  min-height: 100%;
   height: 100%;
-  overflow: auto;
+  overflow-x: hidden;
+  font-size: 0.875rem;
+}
+
+:root {
+  --text-primary-color: #202124;
+  --text-secondary-color: #5f6368;
+}
+
+h2 {
+  font-size: 1.5625rem;
+  line-height: 1.5625rem;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+  display: flex;
+}
+
+.flex-align-items-center {
+  align-items: center;
+}
+
+.flex-justify-content {
+  justify-content: center;
 }

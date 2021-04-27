@@ -1,0 +1,9 @@
+.sidebar-toggle-icon {
+  padding: 0.5rem;
+  display: block;
+}
+
+.sidebar-toggle-icon > svg {
+  width: 1rem;
+  height: 1rem;
+}

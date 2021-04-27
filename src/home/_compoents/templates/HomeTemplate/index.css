@@ -1,0 +1,13 @@
+.root {
+  margin-top: 2em;
+  position: relative;
+}
+
+.root > nav {
+  width: auto;
+  min-width: 3rem;
+}
+
+.root > main {
+  flex: auto;
+}
