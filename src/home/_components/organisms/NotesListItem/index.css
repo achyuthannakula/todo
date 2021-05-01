@@ -1,0 +1,21 @@
+.notes-list-item {
+  width: 20rem;
+  position: relative;
+}
+
+.note-edit-modal {
+  max-width: 80vw;
+  width: 30rem;
+  height: auto;
+  background-color: var(--background-color);
+}
+
+.note-edit-modal textarea {
+  height: 20rem;
+  max-height: 60vh;
+}
+
+.notes-list-item textarea {
+  height: 20rem;
+  max-height: 40vh;
+}

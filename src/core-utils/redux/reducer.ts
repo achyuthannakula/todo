@@ -6,20 +6,21 @@ import {
   PIN_NOTE,
   REMOVE_NOTE,
   UPDATE_NOTE,
-  UPDATE_SEARCH,
   ActivateNoteAction,
   AddNoteAction,
   ArchiveNoteAction,
   PinNoteAction,
   RemoveNoteAction,
   UpdateNoteAction,
-  UpdateSearchAction,
+  UPDATE_NIGHT_MODE,
+  UpdateNightModeAction,
 } from './types';
 
+// tslint:disable: max-union-size : cognitive-complexity
 export const REDUX_INITIAL_STATE: NotesState = {
   active: [],
   archive: [],
-  search: '',
+  nightMode: false,
 };
 
 export function rootReducer(
@@ -31,33 +32,35 @@ export function rootReducer(
     | PinNoteAction
     | RemoveNoteAction
     | UpdateNoteAction
-    | UpdateSearchAction,
+    | UpdateNightModeAction,
 ): NotesState {
   if (action.type === ADD_NOTE) {
     return {
       ...state,
       [action.nodeType.toLowerCase()]: [
         { ...action.data },
-        ...state[action.nodeType],
+        ...state[action.nodeType.toLowerCase()],
       ],
     };
   } else if (action.type === ARCHIVE_NOTE) {
-    const nodeIndex = state.active.findIndex((n) => n.id === action.data);
+    const nodeIndex = state.active.findIndex((n) => n.id === action.id);
     if (nodeIndex === -1) return state;
-    // todo: should we ned to unpin
+    const active = [...state.active];
+    active.splice(nodeIndex, 1);
     return {
       ...state,
       archive: [...state.archive, state.active[nodeIndex]],
-      active: state.active.splice(nodeIndex, 1),
+      active: active,
     };
   } else if (action.type === ACTIVATE_NOTE) {
-    const nodeIndex = state.archive.findIndex((n) => n.id === action.data);
+    const nodeIndex = state.archive.findIndex((n) => n.id === action.id);
     if (nodeIndex === -1) return state;
-    // todo: should we ned to unpin
+    const archive = [...state.archive];
+    archive.splice(nodeIndex, 1);
     return {
       ...state,
       active: [...state.active, state.archive[nodeIndex]],
-      archive: state.archive.splice(nodeIndex, 1),
+      archive: archive,
     };
   } else if (action.type === UPDATE_NOTE) {
     const key = action.nodeType.toLowerCase();
@@ -66,6 +69,7 @@ export function rootReducer(
       [key]: state[key].map((n) => {
         if (n.id === action.data.id) {
           return {
+            ...n,
             ...action.data,
           };
         }
@@ -77,7 +81,7 @@ export function rootReducer(
     return {
       ...state,
       [key]: state[key].map((n) => {
-        if (n.id === action.data) {
+        if (n.id === action.id) {
           return {
             ...n,
             pinned: action.pinned,
@@ -90,12 +94,12 @@ export function rootReducer(
     const key = action.nodeType.toLowerCase();
     return {
       ...state,
-      [key]: state[key].filter((n) => n.id !== action.data),
+      [key]: state[key].filter((n) => n.id !== action.id),
     };
-  } else if (action.type === UPDATE_SEARCH) {
+  } else if (action.type === UPDATE_NIGHT_MODE) {
     return {
       ...state,
-      search: action.data,
+      nightMode: action.nightMode,
     };
   }
   return state;

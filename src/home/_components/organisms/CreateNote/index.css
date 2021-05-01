@@ -1,0 +1,9 @@
+.create-note-card {
+  max-width: 30em;
+  width: 100%;
+  margin: 2rem auto;
+}
+
+.create-note-card textarea {
+  height: 30vh;
+}

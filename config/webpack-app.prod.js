@@ -1,14 +1,12 @@
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const common = require('./webpack-app.common.js');
-const paths = require('./paths');
-const path = require('path');
-const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const ManifestPlugin = require('webpack-manifest-plugin');
+const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
+const { appOutputPath } = require('./paths.js');
 
 module.exports = () => {
   return merge(common, {
@@ -25,18 +23,18 @@ module.exports = () => {
       rules: [],
     },
     plugins: [
-      new CleanWebpackPlugin([path.resolve(__dirname, '../dist')], {
+      new CleanWebpackPlugin([appOutputPath], {
         root: process.cwd(),
         verbose: true,
         dry: false,
       }),
       new OptimizeCssAssetsPlugin(),
       new MiniCssExtractPlugin({
-        filename: '[name].[hash:8].css',
-        chunkFilename: '[id].[hash:8].css',
+        filename: '[name].[fullhash:8].css',
+        chunkFilename: '[id].[fullhash:8].css',
       }),
       new TerserPlugin(),
-      new ManifestPlugin(),
+      new WebpackManifestPlugin(),
       new CompressionPlugin(),
     ],
   });

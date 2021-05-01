@@ -5,16 +5,73 @@ body,
   height: 100%;
   overflow-x: hidden;
   font-size: 0.875rem;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  background-color: var(--background-color);
+  color: var(--text-secondary-color);
+}
+* {
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+@media (max-width: 425px) {
+  html,
+  body {
+    font-size: 12px;
+  }
+}
+
+*:focus {
+  outline: unset !important;
 }
 
 :root {
   --text-primary-color: #202124;
   --text-secondary-color: #5f6368;
+  --primary-color: #feefc3;
+  --background-color: #fff;
+  --border-color: #e0e0e0;
+  --shadow: 0 2px 4px 0 rgb(48 49 51 / 10%);
+  --card-background-color: #f1f3f4;
+  --modal-background-color: rgb(0 0 0 / 4%);
 }
 
-h2 {
+.night-mode:root {
+  --text-primary-color: #e8eaed;
+  --text-secondary-color: rgba(255, 255, 255, 0.87);
+  --primary-color: #41331c;
+  --background-color: #202124;
+  --border-color: #afafaf;
+  --shadow: 0 2px 4px 0 rgb(0 0 0 / 60%);
+  --card-background-color: #ffffff21;
+  --modal-background-color: rgb(255 255 255 / 4%);
+}
+
+h3 {
   font-size: 1.5625rem;
   line-height: 1.5625rem;
+}
+
+.paragraph {
+  font-size: 1.142rem;
+  line-height: 1.142rem;
+  color: inherit;
+}
+
+.paragraph2 {
+  font-size: 1rem;
+  line-height: 1rem;
+  color: inherit;
+}
+
+p {
+  margin: unset;
+}
+
+.text-align-center {
+  text-align: center;
 }
 
 .flex {
@@ -26,10 +83,18 @@ h2 {
   display: flex;
 }
 
-.flex-align-items-center {
+.flex-align-center {
   align-items: center;
 }
 
-.flex-justify-content {
+.flex-justify-center {
   justify-content: center;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+input {
+  color: inherit;
 }

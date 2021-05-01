@@ -1,0 +1,13 @@
+.textarea-atom {
+  resize: none;
+  border: unset;
+  max-height: 70vh;
+  overflow: auto;
+  border: unset;
+  background-color: transparent;
+  flex: auto;
+}
+
+.textarea-atom.full-width {
+  width: 100%;
+}

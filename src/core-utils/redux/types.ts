@@ -1,3 +1,5 @@
+import { ReduxNotesType } from '../constants';
+
 export const ADD_NOTE = 'ADD NOTE';
 export const REMOVE_NOTE = 'REMOVE NOTE';
 export const UPDATE_NOTE = 'UPDATE NOTE';
@@ -5,7 +7,7 @@ export const PIN_NOTE = 'PIN NOTE';
 export const ARCHIVE_NOTE = 'ARCHIVE NOTE';
 export const ACTIVATE_NOTE = 'ACTIVATE NOTE';
 
-export const UPDATE_SEARCH = 'UPDATE SEARCH';
+export const UPDATE_NIGHT_MODE = 'UPDATE NIGHT MODE';
 
 export interface NoteState {
   id: string;
@@ -17,45 +19,45 @@ export interface NoteState {
 export interface NotesState {
   archive: NoteState[];
   active: NoteState[];
-  search: string;
+  nightMode: boolean;
 }
 
 export interface AddNoteAction {
   type: typeof ADD_NOTE;
   data: NoteState;
-  nodeType: 'ACTIVE' | 'ARCHIVE';
+  nodeType: ReduxNotesType.ACTIVE | ReduxNotesType.ARCHIVE;
 }
 
 export interface UpdateNoteAction {
   type: typeof UPDATE_NOTE;
   data: NoteState;
-  nodeType: 'ACTIVE' | 'ARCHIVE';
+  nodeType: ReduxNotesType.ACTIVE | ReduxNotesType.ARCHIVE;
 }
 
 export interface RemoveNoteAction {
   type: typeof REMOVE_NOTE;
-  data: string;
-  nodeType: 'ACTIVE' | 'ARCHIVE';
+  id: string;
+  nodeType: ReduxNotesType.ACTIVE | ReduxNotesType.ARCHIVE;
 }
 
 export interface PinNoteAction {
   type: typeof PIN_NOTE;
-  data: string;
-  nodeType: 'ACTIVE' | 'ARCHIVE';
+  id: string;
+  nodeType: ReduxNotesType.ACTIVE | ReduxNotesType.ARCHIVE;
   pinned: boolean;
 }
 
 export interface ArchiveNoteAction {
   type: typeof ARCHIVE_NOTE;
-  data: string;
+  id: string;
 }
 
 export interface ActivateNoteAction {
   type: typeof ACTIVATE_NOTE;
-  data: string;
+  id: string;
 }
 
-export interface UpdateSearchAction {
-  type: typeof UPDATE_SEARCH;
-  data: string;
+export interface UpdateNightModeAction {
+  type: typeof UPDATE_NIGHT_MODE;
+  nightMode: boolean;
 }

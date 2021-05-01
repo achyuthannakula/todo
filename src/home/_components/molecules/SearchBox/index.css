@@ -1,0 +1,24 @@
+.search-box {
+  padding: 0.5rem;
+  color: var(--text-primary-color);
+  border-radius: 5px;
+  background-color: var(--card-background-color);
+}
+
+.search-box > input {
+  font-size: 1.25rem;
+  border: unset !important;
+  background-color: transparent;
+  height: 2rem;
+
+  max-width: 14rem;
+  width: 100%;
+}
+
+.search-box .close-icon {
+  visibility: hidden;
+}
+
+.search-box .close-icon.enable {
+  visibility: visible;
+}

@@ -1,0 +1,8 @@
+.input-atom {
+  border: unset;
+  background-color: transparent;
+}
+
+.input-atom.full-width {
+  width: 100%;
+}

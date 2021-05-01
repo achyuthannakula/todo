@@ -1,0 +1,15 @@
+.text-button {
+  border-radius: 4px;
+  padding: 0.4rem 0.6rem;
+  color: var(--text-primary-color);
+  display: inline-block;
+  border: unset;
+  background-color: transparent;
+  display: flex;
+  cursor: pointer;
+}
+
+.text-button:hover,
+.text-button.active {
+  background-color: rgb(154 160 166 / 16%);
+}

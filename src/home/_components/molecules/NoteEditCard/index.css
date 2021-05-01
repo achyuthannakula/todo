@@ -1,0 +1,29 @@
+.edit-note-card {
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+  padding: 2rem;
+  padding-bottom: 1rem;
+  margin: auto;
+  width: 100%;
+  color: var(--text-primary-color);
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.edit-note-card > * {
+  margin-bottom: 1rem;
+}
+
+.edit-note-card > *:last-child {
+  margin-bottom: 0;
+}
+
+.edit-note-card .edit-note-actions {
+  visibility: hidden;
+  transition: all 0.2s ease;
+}
+
+.edit-note-card:hover .edit-note-actions,
+.edit-note-card:focus .edit-note-actions {
+  visibility: visible;
+}

@@ -1,0 +1,8 @@
+.root {
+  position: relative;
+  display: flex;
+}
+
+.root > main {
+  flex: auto;
+}

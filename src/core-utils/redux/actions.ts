@@ -5,14 +5,14 @@ import {
   PIN_NOTE,
   REMOVE_NOTE,
   UPDATE_NOTE,
-  UPDATE_SEARCH,
   ActivateNoteAction,
   AddNoteAction,
   ArchiveNoteAction,
   PinNoteAction,
   RemoveNoteAction,
   UpdateNoteAction,
-  UpdateSearchAction,
+  UpdateNightModeAction,
+  UPDATE_NIGHT_MODE,
 } from './types';
 
 export function addTask(info: Omit<AddNoteAction, 'type'>): AddNoteAction {
@@ -78,9 +78,9 @@ export function activateTask(
   };
 }
 
-export function updateSearch(info: string): UpdateSearchAction {
+export function updateNightMode(nightMode: boolean): UpdateNightModeAction {
   return {
-    type: UPDATE_SEARCH,
-    data: info,
+    type: UPDATE_NIGHT_MODE,
+    nightMode,
   };
 }

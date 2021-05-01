@@ -1,0 +1,9 @@
+.notes-list {
+  padding: 2rem 0;
+  width: calc(100% + 2rem);
+  margin: -1rem;
+}
+
+.notes-list > * {
+  margin: 1rem;
+}
