@@ -2,6 +2,7 @@
 node_modules
 
 # production
+/dist
 /build
 /vault-beffe/build
 /.out
